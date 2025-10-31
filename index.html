@@ -1,0 +1,333 @@
+ <iframe 
+
+srcdoc="
+
+<style>
+
+body {
+
+  background: linear-gradient(135deg, #f9d976 0%, #f39f86 100%);
+
+  font-family: Arial, sans-serif;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+.offer-banner {
+
+  background: linear-gradient(90deg, #ff5500, #ff9900);
+
+  color: white;
+
+  text-align: center;
+
+  padding: 12px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+
+  animation: slideDown 1s ease;
+
+}
+
+.offer-banner span {
+
+  color: #fff;
+
+  background: rgba(0,0,0,0.2);
+
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  margin-left: 8px;
+
+}
+
+@keyframes slideDown {
+
+  from { transform: translateY(-40px); opacity: 0; }
+
+  to { transform: translateY(0); opacity: 1; }
+
+}
+
+.promo-box {
+
+  max-width: 420px;
+
+  margin: 30px auto;
+
+  padding: 24px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  animation: popIn 1s ease forwards;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  border: 3px solid #fff7f3;
+
+}
+
+@keyframes popIn {
+
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+
+  to { opacity: 1; transform: translateY(0) scale(1); }
+
+}
+
+.promo-box h2 {
+
+  font-size: 20px;
+
+  line-height: 1.6;
+
+  color: #222;
+
+  margin-bottom: 12px;
+
+}
+
+.promo-box h2 span { font-weight: bold; }
+
+.promo-box h2 .blue { color: #0077ff; }
+
+.promo-box h2 .green { color: #00aa00; }
+
+.promo-box h2 .purple { color: #9933cc; }
+
+.promo-box img.gift {
+
+  width: 120px;
+
+  margin: 14px 0;
+
+  transition: transform 0.5s ease;
+
+}
+
+.promo-box img.gift:hover {
+
+  transform: scale(1.1);
+
+}
+
+.promo-box input[type='text'],
+
+.promo-box input[type='email'] {
+
+  width: 90%;
+
+  padding: 10px;
+
+  margin: 8px 0;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+
+}
+
+.promo-box input:focus {
+
+  border-color: #ff6600;
+
+  box-shadow: 0 0 6px rgba(255,102,0,0.3);
+
+}
+
+.promo-box button {
+
+  background: linear-gradient(90deg, #ff6600, #ff9900);
+
+  color: white;
+
+  font-weight: bold;
+
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 12px 20px;
+
+  width: 95%;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  animation: pulse 1.8s infinite;
+
+  transition: transform 0.3s ease, background 0.3s ease;
+
+}
+
+.promo-box button:hover {
+
+  transform: scale(1.05);
+
+  background: linear-gradient(90deg, #ff5500, #ff8800);
+
+}
+
+@keyframes pulse {
+
+  0% { box-shadow: 0 0 0 0 rgba(255,102,0, 0.5); }
+
+  70% { box-shadow: 0 0 0 12px rgba(255,102,0, 0); }
+
+  100% { box-shadow: 0 0 0 0 rgba(255,102,0, 0); }
+
+}
+
+.promo-box .youtube {
+
+  margin-top: 18px;
+
+  animation: fadeIn 2s ease forwards;
+
+  opacity: 0;
+
+  animation-delay: 0.5s;
+
+}
+
+@keyframes fadeIn {
+
+  from { opacity: 0; transform: scale(0.8); }
+
+  to { opacity: 1; transform: scale(1); }
+
+}
+
+.promo-box .youtube img {
+
+  width: 100px;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+
+}
+
+.promo-box .youtube img:hover {
+
+  transform: scale(1.1);
+
+}
+
+</style>
+
+
+
+<div class='offer-banner'>
+
+⏳ Limited Time Offer! Ends in
+
+<span id='countdown'>00:30:00</span>
+
+</div>
+
+
+
+<div class='promo-box'>
+
+  <h2>
+
+    🎁 Get <span class='purple'>FREE</span> Baby Stuff with Amazon’s 
+
+    <span class='blue'>Baby Registry!</span><br>
+
+    <span class='green'>Sign up now</span> and claim your free <span class='purple'>Welcome box!</span>
+
+  </h2>
+
+
+
+  <img src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' alt='Amazon Gift' class='gift'>
+
+
+
+  <form onsubmit='return false;'>
+
+    <input type='text' placeholder='Your First Name' required><br>
+
+    <input type='email' placeholder='Email Address' required><br>
+
+    <button type='button' onclick='window.open(&quot;https://amzn.to/4nwnfjb&quot;,&quot;_blank&quot;)'>Register Now</button>
+
+  </form>
+
+
+  <div class='youtube'>
+
+    <img src='https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube_subscribe_button_icon.png' alt='Subscribe'>
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+let totalSeconds = 30 * 60;
+
+function updateCountdown() {
+
+  const countdown = document.getElementById('countdown');
+
+  const minutes = Math.floor(totalSeconds / 60);
+
+  const seconds = totalSeconds % 60;
+
+  countdown.textContent = 
+
+    `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+
+  if (totalSeconds > 0) totalSeconds--;
+
+  else countdown.textContent = '00:00';
+
+}
+
+setInterval(updateCountdown, 1000);
+
+updateCountdown();
+
+</script>
+
+" 
+
+style="width:100%;height:750px;border:none;border-radius:12px;box-shadow:0 0 10px rgba(0,0,0,0.2);">
+
+</iframe>
+
