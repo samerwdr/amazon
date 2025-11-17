@@ -1,189 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Baby Registry - Limited Free Offer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- ✅ بعده مباشرة iframe -->
-<iframe 
-srcdoc="
-<style>
-body {
-  background: linear-gradient(135deg, #f9d976 0%, #f39f86 100%);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-.offer-banner {
-  background: linear-gradient(90deg, #ff5500, #ff9900);
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  animation: slideDown 1s ease;
-}
-.offer-banner span {
-  color: #fff;
-  background: rgba(0,0,0,0.2);
-  padding: 4px 8px;
-  border-radius: 6px;
-  margin-left: 8px;
-}
-@keyframes slideDown {
-  from { transform: translateY(-40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-.promo-box {
-  max-width: 420px;
-  margin: 30px auto;
-  padding: 24px;
-  text-align: center;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  animation: popIn 1s ease forwards;
-  opacity: 0;
-  transform: translateY(20px);
-  border: 3px solid #fff7f3;
-}
-@keyframes popIn {
-  from { opacity: 0; transform: translateY(30px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-.promo-box h2 {
-  font-size: 20px;
-  line-height: 1.6;
-  color: #222;
-  margin-bottom: 12px;
-}
-.promo-box h2 span { font-weight: bold; }
-.promo-box h2 .blue { color: #0077ff; }
-.promo-box h2 .green { color: #00aa00; }
-.promo-box h2 .purple { color: #9933cc; }
-.promo-box img.gift {
-  width: 120px;
-  margin: 14px 0;
-  transition: transform 0.5s ease;
-}
-.promo-box img.gift:hover {
-  transform: scale(1.1);
-}
-.promo-box input[type='text'],
-.promo-box input[type='email'] {
-  width: 90%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-.promo-box input:focus {
-  border-color: #ff6600;
-  box-shadow: 0 0 6px rgba(255,102,0,0.3);
-}
-.promo-box button {
-  background: linear-gradient(90deg, #ff6600, #ff9900);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  width: 95%;
-  cursor: pointer;
-  font-size: 16px;
-  position: relative;
-  overflow: hidden;
-  animation: pulse 1.8s infinite;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-.promo-box button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #ff5500, #ff8800);
-}
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255,102,0, 0.5); }
-  70% { box-shadow: 0 0 0 12px rgba(255,102,0, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,102,0, 0); }
-}
-.promo-box .youtube {
-  margin-top: 18px;
-  animation: fadeIn 2s ease forwards;
-  opacity: 0;
-  animation-delay: 0.5s;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
-.promo-box .youtube img {
-  width: 100px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.promo-box .youtube img:hover {
-  transform: scale(1.1);
-}
-</style>
+        body {
+            background: linear-gradient(135deg, #f9d976 0%, #f39f86 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-<div class='offer-banner'>
-⏳ Limited Time Offer! Ends in
-<span id='countdown'>00:30:00</span>
-</div>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-<div class='promo-box'>
-  <h2>
-    🎁 Get <span class='purple'>FREE</span> Baby Stuff with Amazon’s 
-    <span class='blue'>Baby Registry!</span><br>
-    <span class='green'>Sign up now</span> and claim your free <span class='purple'>Welcome box!</span>
-  </h2>
+        .offer-banner {
+            background: linear-gradient(90deg, #ff5500, #ff9900);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: slideDown 1s ease;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 0;
+        }
 
-  <img src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' alt='Amazon Gift' class='gift'>
+        .offer-banner span {
+            color: #fff;
+            background: rgba(0,0,0,0.3);
+            padding: 6px 12px;
+            border-radius: 8px;
+            margin-left: 8px;
+            font-family: monospace;
+            font-size: 16px;
+        }
 
-  <form onsubmit='return false;'>
-    <input type='text' placeholder='Your First Name' required><br>
-    <input type='email' placeholder='Email Address' required><br>
+        @keyframes slideDown {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-<button type='button' onclick="window.open('https://amzn.to/4pkOfU5','_blank')">Register Now</button>
-  
-    </form>
+        .promo-box {
+            background: #ffffff;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            animation: popIn 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            border: 3px solid #fff7f3;
+            padding: 30px 25px;
+            text-align: center;
+        }
 
-  <div class='youtube'>
-    <img src='https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube_subscribe_button_icon.png' alt='Subscribe'>
-  </div>
-</div>
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
 
-<script>
-let totalSeconds = 30 * 60;
-function updateCountdown() {
-  const countdown = document.getElementById('countdown');
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  countdown.textContent = 
-    `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-  if (totalSeconds > 0) totalSeconds--;
-  else countdown.textContent = '00:00';
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
-"
-style="width:100%;height:750px;border:none;border-radius:12px;box-shadow:0 0 10px rgba(0,0,0,0.2);">
+        .promo-box h2 {
+            font-size: 22px;
+            line-height: 1.6;
+            color: #222;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
 
-  <meta name="tlsdk" content="b847646123944872acb5324ca589f660">
+        .promo-box h2 span { 
+            font-weight: bold; 
+        }
 
+        .promo-box h2 .blue { 
+            color: #0077ff; 
+        }
 
+        .promo-box h2 .green { 
+            color: #00aa00; 
+        }
 
+        .promo-box h2 .purple { 
+            color: #9933cc; 
+        }
 
-  
-</iframe>
+        .promo-box h2 .orange { 
+            color: #ff6600; 
+        }
 
+        .gift-image {
+            width: 140px;
+            margin: 20px 0;
+            transition: transform 0.5s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .gift-image:hover {
+            transform: scale(1.1);
+        }
 
-<!-- tacolo شركة -->
-<script type="application/javascript" src="https://gstmx.inppcdn.com/ipp.js?id=f2vdSY8idUGpXZlE4u9gjQ" async></script>
+        .promo-box input[type='text'],
+        .promo-box input[type='email'] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
 
+        .promo-box input:focus {
+            border-color: #ff6600;
+            box-shadow: 0 0 8px rgba(255,102,0,0.4);
+            outline: none;
+        }
 
+        .register-btn {
+            background: linear-gradient(90deg, #ff6600, #ff9900);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 25px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 1.8s infinite;
+            transition: transform 0.3s ease, background 0.3s ease;
+            margin-top: 15px;
+            font-family: inherit;
+        }
 
+        .register-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #ff5500, #ff8800);
+            animation: none;
+        }
 
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,102,0, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(255,102,0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,102,0, 0); }
+        }
 
+        .features {
+            margin: 25px 0;
+            text-align: left;
+        }
 
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            padding: 8px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .feature-item i {
+            color: #00aa00;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .youtube-section {
+            margin-top: 25px;
+            animation: fadeIn 2s ease forwards;
+            opacity: 0;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .youtube-section img {
+            width: 120px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .youtube-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .guarantee {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #00aa00;
+            font-size: 14px;
+            color: #2e7d32;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .security-badge i {
+            color: #00aa00;
+            margin-right: 5px;
+        }
+
+        .skip-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .skip-link:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .promo-box {
+                padding: 20px 15px;
+            }
+            
+            .promo-box h2 {
+                font-size: 18px;
+            }
+            
+            .offer-banner {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="offer-banner">
+            ⏳ Limited Time Offer! Ends in
+            <span id="countdown">00:30:00</span>
+        </div>
+
+        <div class="promo-box">
+            <h2>
+                🎁 Get <span class="purple">FREE</span> Baby Stuff with Amazon's 
+                <span class="blue">Baby Registry!</span><br>
+                <span class="green">Sign up now</span> and claim your free 
+                <span class="orange">Welcome Box!</span>
+            </h2>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="gift-image">
+
+            <div class="features">
+                <div class="feature-item">
+                    <i>✓</i> FREE Welcome Box worth $35+
+                </div>
+                <div class="feature-item">
+                    <i>✓</i> 15% Completion Discount on baby items
+                </div>
+                <div class="feature-item">
+                    <i>✓</i> 90-Day Returns on baby store items
+                </div>
+                <div class="feature-item">
+                    <i>✓</i> FREE Shipping & Returns
+                </div>
+                <div class="feature-item">
+                    <i>✓</i> Universal Registry - add from any store
+                </div>
+            </div>
+
+            <div class="guarantee">
+                ⚡ Easy & Fast - Complete registration in just 2 minutes!
+            </div>
+
+            <form id="registrationForm">
+                <input type="text" placeholder="First Name (Optional)" id="firstName">
+                <input type="email" placeholder="Email Address (Optional)" id="email">
+                <button type="button" class="register-btn" onclick="registerNow()">
+                    Register Now - FREE!
+                </button>
+            </form>
+
+            <a class="skip-link" onclick="registerNow()">
+                Skip form and go directly to registration →
+            </a>
+
+            <div class="security-badge">
+                <i>🔒</i> Secure Registration • We respect your privacy
+            </div>
+
+            <div class="youtube-section">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube_subscribe_button_icon.png" 
+                     alt="Subscribe to our YouTube" 
+                     onclick="window.open('https://youtube.com', '_blank')">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer
+        let totalSeconds = 30 * 60;
+        
+        function updateCountdown() {
+            const countdown = document.getElementById('countdown');
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            countdown.textContent = 
+                `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                countdown.textContent = '00:00';
+                document.querySelector('.offer-banner').style.background = 'linear-gradient(90deg, #666, #999)';
+            }
+        }
+
+        // Registration function - ALWAYS redirects to Amazon
+        function registerNow() {
+            const nameInput = document.getElementById('firstName');
+            const emailInput = document.getElementById('email');
+            
+            // Optional: Save data to localStorage if provided
+            if (nameInput.value) {
+                localStorage.setItem('userFirstName', nameInput.value);
+            }
+            if (emailInput.value) {
+                localStorage.setItem('userEmail', emailInput.value);
+            }
+            
+            // ALWAYS redirect to Amazon immediately
+            window.open('https://amzn.to/4pkOfU5', '_blank');
+            
+            // Optional: Show brief loading message
+            const btn = document.querySelector('.register-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Redirecting...';
+            btn.style.background = 'linear-gradient(90deg, #00aa00, #00cc00)';
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = 'linear-gradient(90deg, #ff6600, #ff9900)';
+            }, 1500);
+        }
+
+        // Auto-redirect after 30 seconds (optional)
+        setTimeout(() => {
+            document.querySelector('.offer-banner').style.background = 'linear-gradient(90deg, #ff0000, #ff5500)';
+            document.querySelector('.offer-banner').innerHTML = '⏳ Last Chance! Redirecting automatically...';
+            
+            setTimeout(() => {
+                registerNow();
+            }, 3000);
+        }, 27000); // 27 seconds
+
+        // Start countdown
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Enter key also triggers registration
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                registerNow();
+            }
+        });
+
+        // Enhance user experience
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#ff6600';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#e0e0e0';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
