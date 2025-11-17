@@ -154,6 +154,10 @@
             animation: none;
         }
 
+        .register-btn:active {
+            transform: scale(0.95);
+        }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(255,102,0, 0.5); }
             70% { box-shadow: 0 0 0 15px rgba(255,102,0, 0); }
@@ -227,21 +231,6 @@
             margin-right: 5px;
         }
 
-        .skip-link {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .skip-link:hover {
-            color: #ff6600;
-            text-decoration: underline;
-        }
-
         @media (max-width: 480px) {
             body {
                 padding: 10px;
@@ -309,10 +298,6 @@
                 </button>
             </form>
 
-            <a class="skip-link" onclick="registerNow()">
-                Skip form and go directly to registration →
-            </a>
-
             <div class="security-badge">
                 <i>🔒</i> Secure Registration • We respect your privacy
             </div>
@@ -343,7 +328,7 @@
             }
         }
 
-        // Registration function - ALWAYS redirects to Amazon
+        // Registration function - ONLY when button is clicked
         function registerNow() {
             const nameInput = document.getElementById('firstName');
             const emailInput = document.getElementById('email');
@@ -356,41 +341,29 @@
                 localStorage.setItem('userEmail', emailInput.value);
             }
             
-            // ALWAYS redirect to Amazon immediately
-            window.open('https://amzn.to/4pkOfU5', '_blank');
-            
-            // Optional: Show brief loading message
+            // Show loading state
             const btn = document.querySelector('.register-btn');
             const originalText = btn.textContent;
-            btn.textContent = 'Redirecting...';
+            btn.textContent = 'Redirecting to Amazon...';
             btn.style.background = 'linear-gradient(90deg, #00aa00, #00cc00)';
+            btn.disabled = true;
             
+            // Redirect to Amazon after brief delay
             setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = 'linear-gradient(90deg, #ff6600, #ff9900)';
-            }, 1500);
+                window.open('https://amzn.to/4pkOfU5', '_blank');
+                
+                // Reset button after redirect
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(90deg, #ff6600, #ff9900)';
+                    btn.disabled = false;
+                }, 1000);
+            }, 500);
         }
-
-        // Auto-redirect after 30 seconds (optional)
-        setTimeout(() => {
-            document.querySelector('.offer-banner').style.background = 'linear-gradient(90deg, #ff0000, #ff5500)';
-            document.querySelector('.offer-banner').innerHTML = '⏳ Last Chance! Redirecting automatically...';
-            
-            setTimeout(() => {
-                registerNow();
-            }, 3000);
-        }, 27000); // 27 seconds
 
         // Start countdown
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        // Enter key also triggers registration
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                registerNow();
-            }
-        });
 
         // Enhance user experience
         document.addEventListener('DOMContentLoaded', function() {
